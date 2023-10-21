@@ -361,3 +361,129 @@ Here are some key considerations when choosing between constants and final varia
 
 - Use constants when the value is known at compile-time, as they are more efficient and can be optimized by the compiler.
 - Use final variables when the value may be determined at runtime but should not change after initialization. This is common for instance variables, function-level constants, and values that are set based on calculations during program execution.
+
+# **Dart Number**
+
+In Dart, numbers are used to represent numeric values. Dart provides two primary numeric data types for working with numbers:
+
+1. **int (Integer)**:
+
+   - The `int` data type is used to represent integers, which are whole numbers, both positive and negative.
+   - Dart's `int` type can hold arbitrarily large integers, limited only by system memory.
+   - You can perform common integer operations like addition, subtraction, multiplication, and division with `int` values.
+
+   Example:
+
+   ```dart
+   int age = 30;
+   int population = 1000000;
+   ```
+
+2. **double (Floating-Point)**:
+
+   - The `double` data type is used to represent floating-point numbers, which are numbers with decimal points.
+   - Dart's `double` type allows for both whole numbers and fractional parts.
+   - You can perform operations involving real numbers, such as addition, subtraction, multiplication, division, and more.
+
+   Example:
+
+   ```dart
+   double pi = 3.14159;
+   double temperature = 25.5;
+   ```
+
+Dart also supports various operations and methods for working with numbers, including arithmetic operations (`+`, `-`, `*`, `/`, `%`), comparison operators (`<`, `>`, `<=`, `>=`, `==`, `!=`), and mathematical functions (e.g., `abs()`, `ceil()`, `floor()`, `round()`).
+
+Here are some additional points to consider when working with numbers in Dart:
+
+- Dart's `num` type is a supertype of both `int` and `double`. This means that you can use `num` to represent numbers when you want to work with integers and floating-point values interchangeably.
+
+- Dart supports integer division using the `~/` operator. For example, `5 ~/ 2` yields `2`, as it returns the integer part of the division.
+
+- Dart also provides the `isEven` and `isOdd` properties for `int` values to check whether a number is even or odd, respectively.
+
+- Dart allows you to convert between `int` and `double` using the `.toDouble()` and `.toInt()` methods, respectively.
+
+- Be mindful of the potential loss of precision when converting between `int` and `double`, as double-precision floating-point numbers have limitations in representing some integer values precisely.
+
+- Dart provides mathematical constants like `double.pi` for π and `double.e` for the base of the natural logarithm (e).
+
+Using `int` and `double`, you can work with a wide range of numeric values and perform various mathematical operations in Dart.
+
+# **Dart String**
+
+In Dart, a `String` is a data type used to represent text and sequences of characters. Dart provides various methods and features for working with strings. Here's an overview of using strings in Dart:
+
+1. **String Declaration**:
+
+   - You can declare a string by enclosing text within either single (`'`) or double (`"`) quotes.
+   - Dart doesn't differentiate between single and double quotes for defining strings; you can use either. For example:
+     ```dart
+     String name = "Alice";
+     String message = 'Hello, Dart!';
+     ```
+
+2. **String Concatenation**:
+
+   - You can concatenate strings using the `+` operator. This combines two or more strings into a single string.
+     ```dart
+     String firstName = "John";
+     String lastName = "Doe";
+     String fullName = firstName + " " + lastName; // Result: "John Doe"
+     ```
+
+3. **String Interpolation**:
+
+   - String interpolation is a more concise way to build strings by embedding expressions within a string using `${...}`.
+   - Dart evaluates the expressions and includes their values in the resulting string.
+     ```dart
+     String name = "Alice";
+     String greeting = "Hello, $name!"; // Result: "Hello, Alice!"
+     ```
+
+4. **String Methods**:
+
+   - Dart provides a variety of string methods to manipulate and query strings, such as:
+     - `length`: Returns the length of the string.
+     - `toUpperCase()`: Converts the string to uppercase.
+     - `toLowerCase()`: Converts the string to lowercase.
+     - `substring()`: Extracts a substring from the string.
+     - `trim()`: Removes leading and trailing whitespace.
+     - `split()`: Splits the string into a list of substrings based on a delimiter.
+
+5. **String Escaping**:
+
+   - You can use the backslash (`\`) to escape special characters within strings. For example, to include a literal double quote within a double-quoted string, use `\"`.
+   - Dart also supports escape sequences like `\n` for a newline and `\t` for a tab.
+
+6. **Raw String**:
+
+   - Dart allows you to create raw strings by prefixing a string literal with an `r` character. This prevents escape sequences from being interpreted within the string.
+   - Raw strings are useful when working with regular expressions or paths that contain backslashes.
+
+   ```dart
+   String path = r'C:\Program Files\Dart\bin'; // Raw string
+   ```
+
+7. **String Comparison**:
+
+   - You can compare strings using equality operators (`==` and `!=`) or by using methods like `compareTo()` to perform case-insensitive or case-sensitive comparisons.
+
+8. **Multiline Strings**:
+
+   - Dart allows you to define multiline strings using triple single (`'''`) or triple double (`"""`) quotes. This is useful for representing strings that span multiple lines.
+
+   ```dart
+   String multiline = '''
+     This is a
+     multiline string.
+   ''';
+   ```
+
+9. **Unicode and Characters**:
+
+   - Dart fully supports Unicode characters, and you can represent characters using Unicode escape sequences like `\u{...}`.
+
+   ```dart
+   String unicodeString = "\u{1F60D}"; // Unicode for a smiley face emoji
+   ```
