@@ -1,4 +1,4 @@
-**What is Dart?**
+# **What is Dart**
 
 > Dart is an open-source, general-purpose programming language developed by Google. It was first announced in 2011 and has since gained popularity as the primary language for building applications with the Flutter framework. Dart is designed for a range of applications, including web development, server-side scripting, mobile app development, and even desktop applications.
 
@@ -22,7 +22,7 @@
 
 9. **Community and Ecosystem**: While not as widely adopted as some other languages, Dart has a growing and active community. Developers have created a variety of packages and libraries that are available through the Dart Package Manager (pub.dev).
 
-**What is Flutter?**
+# **What is Flutter**
 
 > Flutter is an open-source UI (User Interface) framework developed by Google that is used for building natively compiled applications for mobile, web, and desktop from a single codebase. It was first released in 2017 and has gained significant popularity among developers for its ability to create high-quality, visually appealing, and fast applications.
 
@@ -48,7 +48,7 @@ Key features and characteristics of Flutter include:
 
 10. **Official Support from Google**: As an official Google project, Flutter receives ongoing support and updates.
 
-**Flutter/Dart Data Types?**
+# **Flutter/Dart Data Types**
 
 > Dart is the programming language primarily associated with Flutter, and it provides a variety of data types to work with different kinds of values. Here are some of the most common data types in Dart:
 
@@ -109,9 +109,9 @@ Key features and characteristics of Flutter include:
 
     - You can create custom type definitions using `typedef`, allowing you to create more descriptive types for functions and callbacks.
 
-## **Dart Identifier**:
+## **Flutter/Dart Identifier**:
 
-In Dart, identifiers are names given to various program elements such as variables, functions, classes, and more. Identifiers must follow specific rules and conventions to be valid in Dart. Here are some key rules and conventions for Dart identifiers:
+In Flutter/Dart, identifiers are names given to various program elements such as variables, functions, classes, and more. Identifiers must follow specific rules and conventions to be valid in Dart. Here are some key rules and conventions for Dart identifiers:
 
 1. **Rules for Identifiers**:
 
@@ -150,4 +150,121 @@ Invalid Identifiers (due to various issues):
 while (a reserved keyword)
 my-variable (contains a hyphen)
 my variable (contains a space)
+```
+
+# **Dart Comments**:
+
+> In Dart, you can use comments to add explanatory notes or remarks to your code. Comments are ignored by the Dart compiler and are solely meant for developers to document their code. Dart supports both single-line and multi-line comments. Here's how you can use comments in Dart:
+
+1. **Single-Line Comments**:
+
+   Single-line comments start with two forward slashes (`//`) and continue until the end of the line. They are typically used for brief comments or explanations on a single line of code.
+
+   ```dart
+   // This is a single-line comment.
+   var age = 30; // Variable for storing age.
+   ```
+
+2. **Multi-Line Comments**:
+
+   Multi-line comments are enclosed within `/*` and `*/`. They can span multiple lines and are suitable for longer explanations, comments, or for temporarily "commenting out" blocks of code.
+
+   ```dart
+   /*
+   This is a multi-line comment.
+   It can span multiple lines.
+   */
+   var temperature = 25; /* Variable for storing temperature. */
+   ```
+
+3. **Documentation Comments**:
+
+   Dart also supports documentation comments for generating code documentation using tools like DartDoc. Documentation comments start with `///` for single-line comments or `/**` for multi-line comments. They are often used to provide documentation for classes, methods, and libraries.
+
+   ```dart
+   /// This is a documentation comment for a function.
+   /// It should describe the purpose of the function.
+   int add(int a, int b) {
+     return a + b;
+   }
+   ```
+
+   Dart documentation comments can include special tags like `@param`, `@return`, and `@throws` to provide additional information about function parameters, return values, and exceptions.
+
+4. **Nesting Comments**:
+
+   Dart allows you to nest comments within one another. For example, you can have a single-line comment inside a multi-line comment or vice versa.
+
+   ```dart
+   /* This is a multi-line comment.
+      You can use // inside it for a single-line comment. */
+   var x = 42;
+   ```
+
+# **Dart Keywords**
+
+In Dart, keywords are reserved words that have special meanings and are used for specific purposes in the language. These keywords cannot be used as identifiers (variable names, function names, class names, etc.) because they have predefined roles in the language's syntax and semantics. Here is a list of Dart keywords as of my knowledge cutoff date in September 2021:
+
+```dart
+abstract
+as
+assert
+async
+await
+break
+case
+catch
+class
+const
+continue
+covariant
+default
+deferred
+do
+dynamic
+else
+enum
+export
+extends
+extension
+external
+factory
+false
+final
+finally
+for
+Function
+get
+if
+implements
+import
+in
+interface
+is
+late
+library
+mixin
+new
+null
+on
+operator
+part
+rethrow
+return
+set
+show
+static
+super
+switch
+sync
+this
+throw
+true
+try
+typedef
+var
+void
+while
+with
+yield
 ```
