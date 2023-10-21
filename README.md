@@ -851,13 +851,231 @@ if (today == Day.saturday || today == Day.sunday) {
 }
 ```
 
-Control Flow Statement
+# **Dart Control Flow Statement**
 
-> [!NOTE]
-> Highlights information that users should take into account, even when skimming.
+In Dart, like in most programming languages, control flow statements are used to control the order in which code is executed. Dart provides various control flow statements to manage program flow and make decisions. Here are the primary control flow statements in Dart:
 
-> [!IMPORTANT]
-> Crucial information necessary for users to succeed.
+1. **Conditional Statements**:
 
-> [!WARNING]
-> Critical content demanding immediate user attention due to potential risks.
+   - **if**: The `if` statement is used to execute a block of code if a specified condition is `true`.
+
+     ```dart
+     if (condition) {
+       // Code to execute if the condition is true.
+     }
+     ```
+
+   - **if-else**: The `if-else` statement allows you to execute one block of code if a condition is `true` and another block if it's `false`.
+
+     ```dart
+     if (condition) {
+       // Code to execute if the condition is true.
+     } else {
+       // Code to execute if the condition is false.
+     }
+     ```
+
+   - **if-else if-else**: You can use multiple `else if` blocks to handle multiple conditions in a more granular way.
+
+     ```dart
+     if (condition1) {
+       // Code for condition1.
+     } else if (condition2) {
+       // Code for condition2.
+     } else {
+       // Code for the default case.
+     }
+     ```
+
+2. **Switch Statement**:
+
+   - The `switch` statement allows you to select one block of code to execute from a list of options based on the value of an expression.
+
+     ```dart
+     switch (value) {
+       case option1:
+         // Code for option1.
+         break;
+       case option2:
+         // Code for option2.
+         break;
+       default:
+         // Code for the default case.
+     }
+     ```
+
+   - The `break` statement is used to exit the `switch` statement once a match is found. Dart doesn't require `break` statements if you don't want to exit early.
+
+3. **Loops**:
+
+   - **for Loop**: A `for` loop is used to iterate over a sequence of values (e.g., a list or range of numbers).
+
+     ```dart
+     for (var i = 0; i < 5; i++) {
+       // Code to repeat for each iteration.
+     }
+     ```
+
+   - **while Loop**: A `while` loop repeats a block of code as long as a condition is `true`.
+
+     ```dart
+     while (condition) {
+       // Code to repeat while the condition is true.
+     }
+     ```
+
+   - **do-while Loop**: A `do-while` loop is similar to a `while` loop, but it guarantees that the code block is executed at least once before checking the condition.
+
+     ```dart
+     do {
+       // Code to execute at least once.
+     } while (condition);
+     ```
+
+   - **for-in Loop**: A `for-in` loop is used to iterate over the elements of an iterable, such as a list.
+
+     ```dart
+     for (var element in iterable) {
+       // Code to execute for each element.
+     }
+     ```
+
+4. **Control Flow Statements**:
+
+   - **break**: The `break` statement is used to exit a loop prematurely.
+
+     ```dart
+     for (var i = 0; i < 10; i++) {
+       if (i == 5) {
+         break; // Exits the loop when i is 5.
+       }
+     }
+     ```
+
+   - **continue**: The `continue` statement is used to skip the current iteration of a loop and move to the next one.
+
+     ```dart
+     for (var i = 0; i < 10; i++) {
+       if (i == 5) {
+         continue; // Skips iteration when i is 5.
+       }
+     }
+     ```
+
+# **Dart Function**
+
+In Dart, a function is a block of code that performs a specific task or computation. Functions are a fundamental concept in Dart and in many other programming languages. They allow you to encapsulate a set of instructions into a reusable unit. Here's an overview of working with functions in Dart:
+
+1. **Defining a Function**:
+   To define a function in Dart, you use the `function_name` followed by a pair of parentheses `()` to enclose any function parameters, if there are any. You also use curly braces `{}` to enclose the function's body, which contains the code to be executed.
+
+   ```dart
+   returnType functionName(parameters) {
+     // Function body: Code to perform the task.
+   }
+   ```
+
+   - `returnType`: Specifies the type of value that the function will return. If a function doesn't return a value, you can use `void`.
+   - `functionName`: The name of the function.
+   - `parameters`: Any input data that the function needs, enclosed in parentheses.
+
+   Example of a function with a return value:
+
+   ```dart
+   int add(int a, int b) {
+     return a + b;
+   }
+   ```
+
+   Example of a function without a return value (`void`):
+
+   ```dart
+   void printGreeting(String name) {
+     print('Hello, $name!');
+   }
+   ```
+
+2. **Calling a Function**:
+   To use a function, you call it by its name, provide arguments (if it expects any), and use the result (if it returns a value).
+
+   ```dart
+   int sum = add(5, 3); // Calling the 'add' function and storing its result in 'sum'.
+   printGreeting('Alice'); // Calling the 'printGreeting' function.
+   ```
+
+3. **Optional Parameters**:
+   Functions can have optional parameters. You can use curly braces `{}` to wrap optional parameters or square brackets `[]` to wrap optional positional parameters.
+
+   Example of a function with optional parameters:
+
+   ```dart
+   String buildFullName(String firstName, {String middleName = '', String lastName = ''}) {
+     return '$firstName $middleName $lastName';
+   }
+   ```
+
+   You can call this function with or without providing values for the optional parameters.
+
+   ```dart
+   print(buildFullName('Alice')); // Outputs "Alice  ".
+   print(buildFullName('Bob', middleName: 'John', lastName: 'Doe')); // Outputs "Bob John Doe".
+   ```
+
+4. **Anonymous Functions (Function Expressions)**:
+   Dart allows you to create anonymous functions, often referred to as lambda functions or function expressions. These are functions without a name and can be assigned to variables.
+
+   ```dart
+   var multiply = (int a, int b) => a * b;
+   ```
+
+   You can call `multiply` like a regular function.
+
+   ```dart
+   int product = multiply(4, 3); // Result: 12
+   ```
+
+5. **Function as a Parameter**:
+   You can pass functions as parameters to other functions, allowing for more flexible and dynamic behavior in your code. This is often used for callbacks and event handling.
+
+   ```dart
+   void executeOperation(int a, int b, int Function(int, int) operation) {
+     int result = operation(a, b);
+     print('Result: $result');
+   }
+
+   executeOperation(6, 4, (x, y) => x + y); // Result: 10
+   executeOperation(6, 4, (x, y) => x * y); // Result: 24
+   ```
+
+# **Dart Recursion**
+
+In Dart, recursion is a programming technique where a function calls itself in order to solve a problem. This is a fundamental concept in computer science and programming, and it allows you to solve complex problems by breaking them down into smaller, more manageable sub-problems.
+
+Recursion involves two main components:
+
+1. **Base Case**: This is the termination condition for the recursive function. It defines a scenario in which the function does not call itself and instead returns a result. Base cases are essential to prevent infinite recursion.
+
+2. **Recursive Case**: In the recursive case, the function calls itself with modified arguments to solve a smaller or simpler version of the problem. This process continues until the base case is reached.
+
+A typical recursive function in Dart consists of these two components. Here's a simple example that calculates the factorial of a number using recursion:
+
+```dart
+int factorial(int n) {
+  if (n == 0) {
+    return 1; // Base case: 0! is 1.
+  } else {
+    return n * factorial(n - 1); // Recursive case.
+  }
+}
+
+void main() {
+  int result = factorial(5); // Computes 5!
+  print('5! = $result'); // Output: 5! = 120
+}
+```
+
+In this example, the base case is when `n` is equal to 0, and the function returns 1. For any other value of `n`, the function calls itself with `n - 1` as the argument until it reaches the base case.
+
+Recursion is commonly used to solve problems that exhibit a recursive structure, such as tree traversal, graph algorithms, and divide-and-conquer algorithms like merge sort or quicksort. When using recursion, it's important to ensure that the base case is well-defined, and the function converges toward it, avoiding infinite recursion.
+
+Recursion can lead to elegant and concise solutions for certain problems, but it requires a good understanding of the problem and careful implementation to avoid potential stack overflow errors.
