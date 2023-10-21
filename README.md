@@ -203,7 +203,7 @@ my variable (contains a space)
 
 # **Dart Keywords**
 
-In Dart, keywords are reserved words that have special meanings and are used for specific purposes in the language. These keywords cannot be used as identifiers (variable names, function names, class names, etc.) because they have predefined roles in the language's syntax and semantics. Here is a list of Dart keywords as of my knowledge cutoff date in September 2021:
+> In Dart, keywords are reserved words that have special meanings and are used for specific purposes in the language. These keywords cannot be used as identifiers (variable names, function names, class names, etc.) because they have predefined roles in the language's syntax and semantics. Here is a list of Dart keywords as of my knowledge cutoff date in September 2021:
 
 ```dart
 abstract
@@ -267,4 +267,59 @@ void
 while
 with
 yield
+```
+
+# **Dart Variable an Rule to Create Variable**
+
+> In Dart, a variable is a named storage location that holds data or values. Variables are essential for storing and manipulating data in your programs. To create a variable in Dart, you follow these basic rules:
+
+1. **Declaration**: To declare a variable, use the `var`, `final`, or `const` keyword, followed by the variable name, an optional type annotation, and an optional initializer (initial value). Here are the variable declaration forms:
+
+   - **`var`**: Used for variables whose values can change (mutable).
+     ```dart
+     var variableName = initialValue;
+     ```
+   - **`final`**: Used for variables whose values are constant after they are initialized. These values cannot be changed (immutable).
+     ```dart
+     final variableName = initialValue;
+     ```
+   - **`const`**: Used for constant values that are known at compile-time and cannot be changed (immutable).
+     ```dart
+     const variableName = initialValue;
+     ```
+
+   For example:
+
+   ```dart
+   var name = "John";
+   final age = 30;
+   const pi = 3.14159;
+   ```
+
+2. **Type Annotation** (Optional): You can explicitly specify the data type of a variable using a type annotation, or you can let Dart infer the type based on the initializer. For example:
+
+   ```dart
+   int count = 5; // Type annotation specifies 'int'.
+   var length = 10; // Dart infers the type as 'int'.
+   ```
+
+3. **Identifier Rules**: Dart variable names (identifiers) must follow these rules:
+   - Start with a letter (uppercase or lowercase) or underscore `_`.
+   - After the first character, can include letters, digits, and underscores.
+   - Cannot be a Dart reserved word (keyword).
+   - Must be unique within the same scope.
+
+Here are some examples of variable declarations in Dart:
+
+```dart
+var name = "Alice"; // Inferred type: String
+var age = 25;       // Inferred type: int
+var isStudent = true; // Inferred type: bool
+
+final city = "New York"; // Inferred type: String
+final population = 8_399_000; // Inferred type: int
+
+const pi = 3.14159; // Inferred type: double
+
+int count; // Declaring a variable without an initial value (null by default).
 ```
