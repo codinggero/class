@@ -1,8 +1,8 @@
-#**What is Dart?**
+**#What is Dart?**
 
 > Dart is an open-source, general-purpose programming language developed by Google. It was first announced in 2011 and has since gained popularity as the primary language for building applications with the Flutter framework. Dart is designed for a range of applications, including web development, server-side scripting, mobile app development, and even desktop applications.
 
-#**Key features and characteristics of Dart include:**
+**##Key features and characteristics of Dart include:**
 
 1. **Object-Oriented**: Dart is an object-oriented language, which means it supports concepts like classes, objects, and inheritance, making it well-suited for building modular and structured code.
 
