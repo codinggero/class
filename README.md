@@ -323,3 +323,41 @@ const pi = 3.14159; // Inferred type: double
 
 int count; // Declaring a variable without an initial value (null by default).
 ```
+
+# **Dart Constants vs Final Variables**
+
+In Dart, both constants (created using `const`) and final variables (declared with `final`) are used to represent values that cannot be changed after they are initialized. However, there are important differences between the two:
+
+**Constants (`const`)**:
+
+- Constants are evaluated at compile-time, and their values are known at the time of compilation.
+- They are primarily used for values that are known and fixed before the program runs, such as numeric constants, string constants, and expressions that can be determined at compile-time.
+- Constants are more efficient in terms of performance because they are determined at compile-time and can be optimized by the Dart compiler.
+- Constants can be used to create constant expressions, constant lists, and constant maps.
+
+Example:
+
+```dart
+const double pi = 3.14159;
+const int secondsPerMinute = 60;
+const String welcomeMessage = "Hello, Dart!";
+```
+
+**Final Variables (`final`)**:
+
+- Final variables are evaluated at runtime. They are assigned a value when the program runs, and once assigned, that value cannot be changed.
+- Final variables are used for values that may be determined at runtime but remain constant during the program's execution.
+- They are commonly used for values that are assigned once and should not change afterward, such as instance variables in classes.
+- Final variables are more flexible compared to constants because they can be assigned values that are not known at compile-time.
+
+Example:
+
+```dart
+final int age = 30;
+final String appName = getApplicationName();
+```
+
+Here are some key considerations when choosing between constants and final variables:
+
+- Use constants when the value is known at compile-time, as they are more efficient and can be optimized by the compiler.
+- Use final variables when the value may be determined at runtime but should not change after initialization. This is common for instance variables, function-level constants, and values that are set based on calculations during program execution.
