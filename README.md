@@ -1079,3 +1079,5 @@ In this example, the base case is when `n` is equal to 0, and the function retur
 Recursion is commonly used to solve problems that exhibit a recursive structure, such as tree traversal, graph algorithms, and divide-and-conquer algorithms like merge sort or quicksort. When using recursion, it's important to ensure that the base case is well-defined, and the function converges toward it, avoiding infinite recursion.
 
 Recursion can lead to elegant and concise solutions for certain problems, but it requires a good understanding of the problem and careful implementation to avoid potential stack overflow errors.
+
+# **_Object-Oriented_**
