@@ -1,4 +1,4 @@
-**>[What is Dart?]**
+**What is Dart?**
 
 > Dart is an open-source, general-purpose programming language developed by Google. It was first announced in 2011 and has since gained popularity as the primary language for building applications with the Flutter framework. Dart is designed for a range of applications, including web development, server-side scripting, mobile app development, and even desktop applications.
 
@@ -106,4 +106,48 @@ Key features and characteristics of Flutter include:
     - Dart allows you to create your own custom data types by defining classes.
 
 13. **Type Definitions**:
+
     - You can create custom type definitions using `typedef`, allowing you to create more descriptive types for functions and callbacks.
+
+## **Dart Identifier**:
+
+In Dart, identifiers are names given to various program elements such as variables, functions, classes, and more. Identifiers must follow specific rules and conventions to be valid in Dart. Here are some key rules and conventions for Dart identifiers:
+
+1. **Rules for Identifiers**:
+
+   - Identifiers must start with either a letter (uppercase or lowercase) or an underscore `_`.
+   - After the first character, identifiers can include letters, digits, and underscores.
+   - Identifiers are case-sensitive. For example, `myVar` and `myvar` are considered different identifiers.
+   - Identifiers cannot be Dart reserved words or keywords. For example, you cannot name a variable "int" or "while" because these are reserved words in Dart.
+
+2. **Naming Conventions**:
+
+   - Dart follows a convention of using "CamelCase" or "lowerCamelCase" for most identifiers. This means that the first letter of the identifier is lowercase, and the first letter of each subsequent concatenated word is uppercase. For example: `myVariableName`, `calculateTotalAmount`.
+   - Class names should follow a similar convention but start with an uppercase letter. For example: `MyClass`, `PersonDetails`.
+   - Constants should be named using all uppercase letters with underscores separating words. For example: `PI`, `MAX_LENGTH`.
+
+3. **Underscores**:
+
+   - It is common to use an underscore at the beginning of an identifier to indicate that it's a private variable or function. For example, `_privateVar`, `_calculateTotal`.
+
+Here are some examples of valid and invalid Dart identifiers:
+
+Valid Identifiers:
+
+```dart
+myVariable
+myClass
+calculateTotalAmount
+_PI
+MAX_LENGTH
+_privateVar
+```
+
+Invalid Identifiers (due to various issues):
+
+```dart
+123invalid (starts with a digit)
+while (a reserved keyword)
+my-variable (contains a hyphen)
+my variable (contains a space)
+```
