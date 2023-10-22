@@ -1185,3 +1185,427 @@ Recursion can lead to elegant and concise solutions for certain problems, but it
    Rectangle rect = Rectangle(3, 4); // Using the default constructor.
    Rectangle square = Rectangle.square(5); // Using the named constructor.
    ```
+
+# **Dart Inheritance**
+
+> Inheritance is a fundamental concept in object-oriented programming that Dart fully supports. It allows you to create new classes (derived or subclass) based on existing classes (base or superclass). The derived class inherits the properties and methods of the base class, which promotes code reuse and supports the "is-a" relationship between objects. Inheritance is used to model hierarchies and relationships among classes. Here's how you can work with inheritance in Dart:
+
+1. **Defining a Base Class**:
+
+   To create a base class, define a class with the properties and methods that you want to share with derived classes. This is also known as the superclass.
+
+   ```dart
+   class Animal {
+     String name;
+     int age;
+
+     Animal(this.name, this.age);
+
+     void makeSound() {
+       print('Animal sound');
+     }
+   }
+   ```
+
+2. **Creating a Derived Class**:
+
+   To create a derived class, use the `extends` keyword followed by the name of the base class. The derived class inherits the properties and methods of the base class.
+
+   ```dart
+   class Dog extends Animal {
+     String breed;
+
+     Dog(String name, int age, this.breed) : super(name, age);
+
+     @override
+     void makeSound() {
+       print('Bark');
+     }
+   }
+   ```
+
+3. **Constructor Initialization**:
+
+   In the derived class, you can use the `super` keyword to call the constructor of the base class. This allows you to initialize properties inherited from the base class.
+
+4. **Overriding Methods**:
+
+   You can override methods from the base class by using the `@override` annotation. This allows the derived class to provide its own implementation of the method.
+
+5. **Accessing Inherited Members**:
+
+   You can access the properties and methods of the base class using the dot notation, just like you would with the derived class's own members.
+
+   ```dart
+   Dog myDog = Dog('Fido', 3, 'Golden Retriever');
+   print(myDog.name); // Accesses the 'name' property from the base class.
+   myDog.makeSound(); // Calls the overridden 'makeSound' method.
+   ```
+
+6. **Method Hiding**:
+
+   If you want to hide a method or property from the base class, you can use the `@override` annotation to indicate that the method in the derived class should not be treated as an override.
+
+   ```dart
+   class Cat extends Animal {
+     String color;
+
+     Cat(String name, int age, this.color) : super(name, age);
+
+     @override
+     void makeSound() {
+       print('Meow');
+     }
+
+     void scratch() {
+       print('Cat is scratching.');
+     }
+   }
+   ```
+
+# **Dart Polymorphism**
+
+Polymorphism is one of the key principles of object-oriented programming (OOP) and is fully supported in Dart. Polymorphism allows you to work with objects of different classes in a consistent and unified way. It enables you to write code that can operate on objects of various derived classes as if they were objects of a common base class. There are two primary forms of polymorphism in Dart: compile-time polymorphism and runtime polymorphism.
+
+1. **Compile-Time Polymorphism (Method Overloading)**:
+
+   Compile-time polymorphism refers to the ability to use the same method name for multiple methods in the same class, differentiating them based on the number or types of their parameters. This is often called method overloading. Dart does not support method overloading based on method signatures. You can only have one method with a particular name in a class. If you attempt to declare multiple methods with the same name and different parameter lists, it will result in a compilation error.
+
+   ```dart
+   class Calculator {
+     int add(int a, int b) {
+       return a + b;
+     }
+
+     double add(double a, double b) {
+       return a + b;
+     }
+   }
+   ```
+
+2. **Runtime Polymorphism (Method Overriding)**:
+
+   Runtime polymorphism is more commonly associated with the concept of polymorphism. It involves the ability of derived classes to provide their own implementation of a method inherited from a base class. This is achieved through method overriding.
+
+   - In Dart, to enable runtime polymorphism, you use the `@override` annotation in a derived class to indicate that a method is intended to override a method in the base class.
+
+   - The derived class provides its own implementation of the method, which can be different from the implementation in the base class.
+
+   - When an object of the derived class is used, the overridden method in the derived class is called, regardless of the type of reference used to access the object.
+
+   ```dart
+   class Animal {
+     void makeSound() {
+       print('Animal sound');
+     }
+   }
+
+   class Dog extends Animal {
+     @override
+     void makeSound() {
+       print('Bark');
+     }
+   }
+
+   class Cat extends Animal {
+     @override
+     void makeSound() {
+       print('Meow');
+     }
+   }
+   ```
+
+   ```dart
+   void animalSound(Animal animal) {
+     animal.makeSound();
+   }
+
+   Animal myDog = Dog();
+   Animal myCat = Cat();
+
+   animalSound(myDog); // Outputs "Bark"
+   animalSound(myCat); // Outputs "Meow"
+   ```
+
+   The `animalSound` function accepts objects of the `Animal` class but can be called with objects of derived classes (`Dog` and `Cat`) because of polymorphism. The appropriate `makeSound` method of the derived class is invoked at runtime based on the actual type of the object being passed.
+
+# **Dart Interfaces**
+
+In Dart, an interface is a way to define a contract for a class or multiple classes to implement a set of methods and properties. Dart doesn't have a dedicated `interface` keyword like some other programming languages, but you can achieve the same effect using abstract classes. Abstract classes can define a set of abstract methods (methods without implementations) that derived classes must override. Here's how to use abstract classes to define interfaces in Dart:
+
+1. **Defining an Interface**:
+
+   To define an interface in Dart, create an abstract class with abstract methods. These abstract methods serve as the contract that classes implementing the interface must adhere to. You can also define getters and setters in the abstract class.
+
+   ```dart
+   abstract class Printable {
+     void printPage();
+     int get pageCount;
+   }
+   ```
+
+2. **Implementing an Interface**:
+
+   To implement an interface, a class needs to extend the abstract class and provide concrete implementations for the abstract methods.
+
+   ```dart
+   class Document implements Printable {
+     int _pageCount = 0;
+
+     @override
+     void printPage() {
+       print('Printing a page.');
+       _pageCount++;
+     }
+
+     @override
+     int get pageCount => _pageCount;
+   }
+   ```
+
+   The `Document` class implements the `Printable` interface by providing concrete implementations for the `printPage` method and the `pageCount` property.
+
+3. **Using the Interface**:
+
+   You can create objects of the class that implements the interface and use them based on the interface contract.
+
+   ```dart
+   void main() {
+     Printable doc = Document();
+     doc.printPage();
+     print('Total pages printed: ${doc.pageCount}');
+   }
+   ```
+
+   In this example, you create a `Document` object and use it as a `Printable` object, calling the `printPage` method and accessing the `pageCount` property.
+
+4. **Multiple Interfaces**:
+
+   A class in Dart can implement multiple interfaces by separating them with commas.
+
+   ```dart
+   abstract class Drawable {
+     void draw();
+   }
+
+   class Picture implements Printable, Drawable {
+     // Implement methods for both Printable and Drawable interfaces.
+     // ...
+   }
+   ```
+
+# **Dart Abstract class**
+
+In Dart, an abstract class is a class that cannot be instantiated directly but is used as a blueprint for other classes. Abstract classes are designed to define a set of methods and properties that derived classes must implement. They are often used to create interfaces or base classes with common behavior. Here's how to define and work with abstract classes in Dart:
+
+1. **Defining an Abstract Class**:
+
+   To declare an abstract class in Dart, you use the `abstract` keyword before the `class` keyword. Within the abstract class, you can define abstract methods (methods without implementations) that derived classes must override. You can also define concrete methods with implementations.
+
+   ```dart
+   abstract class Shape {
+     double area(); // Abstract method
+     void draw(); // Abstract method
+     void printDescription() {
+       print('This is a shape.');
+     }
+   }
+   ```
+
+2. **Inheriting from an Abstract Class**:
+
+   Other classes can extend (inherit from) an abstract class, and in doing so, they must provide implementations for all the abstract methods defined in the abstract class.
+
+   ```dart
+   class Circle extends Shape {
+     double radius;
+
+     Circle(this.radius);
+
+     @override
+     double area() {
+       return 3.141 * radius * radius;
+     }
+
+     @override
+     void draw() {
+       print('Drawing a circle.');
+     }
+   }
+   ```
+
+3. **Instantiating Derived Classes**:
+
+   You can create objects from classes that inherit from the abstract class, as long as the derived classes provide implementations for the abstract methods.
+
+   ```dart
+   void main() {
+     Shape circle = Circle(5.0);
+     print('Area of the circle: ${circle.area()}');
+     circle.draw();
+     circle.printDescription();
+   }
+   ```
+
+   In this example, a `Circle` object is created from the `Circle` class, which inherits from the `Shape` abstract class. The `Circle` class provides implementations for the `area` and `draw` methods, which are required by the `Shape` abstract class.
+
+4. **Using Abstract Classes as Interfaces**:
+
+   Dart doesn't have a distinct `interface` keyword like some other languages. Instead, you can use abstract classes as a way to define interfaces. By creating an abstract class with abstract methods, you can enforce that implementing classes adhere to a specific contract.
+
+   ```dart
+   abstract class Printable {
+     void printPage();
+   }
+   ```
+
+   Classes that implement the `Printable` interface (by extending it) must provide an implementation for the `printPage` method.
+
+# **Widgets**
+
+> In Flutter, widgets are the basic building blocks used to create user interfaces. Everything you see on the screen in a Flutter app, such as text, images, buttons, input fields, and entire screens, is composed of widgets. Widgets are the fundamental elements of the Flutter framework, and they serve as the visual and interactive components of your application.
+
+Flutter widgets are typically organized into a tree structure, forming a hierarchy where parent widgets contain child widgets. This tree of widgets defines the user interface layout and behavior of the app. Widgets come in two main categories:
+
+1. **Stateless Widgets**:
+
+   - These widgets do not store or manage any mutable state.
+   - Their properties (called "props" or "parameters" in other frameworks) are passed to them when they are created and don't change during their lifetime.
+   - Stateless widgets are used for UI components that don't change based on user interactions or external factors. For example, text labels or static images are often implemented as stateless widgets.
+
+2. **Stateful Widgets**:
+   - These widgets can maintain and change their internal state, such as user input or changes over time.
+   - When the internal state of a stateful widget changes, it triggers a rebuild of the widget, updating the user interface.
+   - Stateful widgets are used for UI components that need to respond to user interactions, fetch data from the network, or have dynamic behavior. For example, buttons, input fields, and list views are often implemented as stateful widgets.
+
+Flutter widgets come in a wide variety, and the framework provides an extensive set of built-in widgets that you can use to create your app's user interface. Additionally, you can build your custom widgets by composing existing widgets or creating new ones as needed.
+
+Widgets in Flutter are lightweight and highly customizable. They are reusable, composable, and flexible, allowing you to create complex and visually appealing user interfaces. The widget-based architecture is one of the key features that make Flutter a popular choice for developing cross-platform mobile, web, and desktop applications.
+
+# **Flutter Widgets Catagories**
+
+In Flutter, widgets are categorized based on their functionality and purpose. These categories help you understand and organize the widgets you'll use in your app. Here are the main categories of widgets in Flutter:
+
+1. **Layout Widgets**:
+
+   - Widgets that are used to structure the layout of your user interface, such as `Container`, `Row`, `Column`, `Stack`, `ListView`, `Expanded`, `Flexible`, and more.
+
+2. **Text and Typography Widgets**:
+
+   - Widgets for displaying text and controlling its appearance, including `Text`, `RichText`, `TextField`, `TextFormField`, and more.
+
+3. **User Interface Widgets**:
+
+   - Widgets used to create user interface components, such as buttons (`RaisedButton`, `FlatButton`, `IconButton`), icons (`Icon`), images (`Image`), sliders (`Slider`), switches (`Switch`), and more.
+
+4. **Navigation Widgets**:
+
+   - Widgets that help with navigation and app structure, including `Navigator`, `PageRoute`, `BottomNavigationBar`, `TabBar`, and more.
+
+5. **Material Design Widgets**:
+
+   - Widgets specifically designed to adhere to the Material Design guidelines, such as `AppBar`, `BottomAppBar`, `SnackBar`, `Card`, and more.
+
+6. **Cupertino Widgets** (iOS-style):
+
+   - Widgets that mimic the design and behavior of iOS components, including `CupertinoNavigationBar`, `CupertinoTextField`, `CupertinoPicker`, and more.
+
+7. **Form Widgets**:
+
+   - Widgets for creating and handling forms, such as `Form`, `TextFormField`, `Checkbox`, `Radio`, and `DropdownButton`.
+
+8. **Data Display Widgets**:
+
+   - Widgets for displaying data in various formats, including `ListTile`, `Card`, `ExpansionPanel`, `Divider`, and more.
+
+9. **Advanced Widgets**:
+
+   - Widgets for more specialized purposes, like `CustomPaint`, `CustomPainter`, `Hero`, `GestureDetector`, `Draggable`, and more.
+
+10. **State Management Widgets**:
+
+    - Widgets used for managing the state of your app, including `StatefulWidget` and its companion class `State`, as well as third-party packages like `StreamBuilder`, `FutureBuilder`, and state management solutions like `Provider`, `Riverpod`, and more.
+
+11. **Media and Animation Widgets**:
+
+    - Widgets for working with media, such as `VideoPlayer`, `AudioPlayer`, and for creating animations, such as `Animation`, `AnimatedBuilder`, `FadeTransition`, and more.
+
+12. **Platform Integration Widgets**:
+
+    - Widgets for integrating platform-specific features like device sensors, geolocation, camera access, and more using plugins and packages.
+
+13. **Custom Widgets**:
+
+    - Widgets that you create to suit your specific app's requirements. You can compose your custom widgets by combining existing Flutter widgets or creating entirely new ones.
+
+14. **Layout Builders**:
+
+    - Widgets like `LayoutBuilder` and `Builder` that allow you to customize the layout of their children based on constraints or external data.
+
+15. **Development Tools**:
+    - Widgets like `DebugPrintCallback`, `ErrorWidget`, and `SemanticsDebugger` used for debugging and testing during development.
+
+These categories help you organize and understand the purpose of the widgets available in Flutter. Depending on your project's requirements, you can choose widgets from these categories to create your app's user interface and functionality. Flutter's rich ecosystem of widgets and libraries allows you to build a wide range of applications with various features and designs.
+
+# **Flutter Layouts**
+
+In Flutter, layouts are used to structure the user interface of your mobile application. Layout widgets define the arrangement of other widgets within your app, determining how they are positioned, sized, and interact with each other. Flutter provides a variety of layout widgets that allow you to create a wide range of UI designs. Here are some of the commonly used layout widgets in Flutter:
+
+1. **Container**:
+
+   - The `Container` widget is a versatile layout widget that allows you to customize its child's position and appearance.
+   - You can set properties like padding, margin, alignment, border, and background color.
+
+2. **Row and Column**:
+
+   - The `Row` and `Column` widgets are used for arranging children widgets in horizontal and vertical sequences, respectively.
+   - They allow for easy arrangement of multiple widgets in a row or column.
+
+3. **Stack**:
+
+   - The `Stack` widget allows you to stack children on top of each other.
+   - Widgets within a `Stack` can be positioned relative to the edges of the `Stack` or relative to each other.
+
+4. **ListView**:
+
+   - The `ListView` widget is used for creating scrollable lists or grids of items.
+   - There are variations such as `ListView.builder` for building a list with a large number of items efficiently.
+
+5. **Expanded** and **Flexible**:
+
+   - These widgets are used within `Row` and `Column` to control how their children share available space.
+   - `Expanded` takes up all available space, while `Flexible` allows you to specify how the space is divided among multiple children.
+
+6. **Container**:
+
+   - The `Container` widget is a versatile layout widget that allows you to customize its child's position and appearance.
+   - You can set properties like padding, margin, alignment, border, and background color.
+
+7. **Wrap**:
+
+   - The `Wrap` widget is used for creating a flow of children that wrap to the next line when they don't fit within the available width.
+   - Useful for creating dynamic lists of items or text.
+
+8. **Card**:
+
+   - The `Card` widget creates a Material Design card with a shadow.
+   - It's useful for presenting information in a structured and visually appealing way.
+
+9. **Grid**:
+
+   - The `GridView` widget is used for creating a scrollable grid of items.
+   - It can be used for building grid-based layouts, such as image galleries or data tables.
+
+10. **Flow**:
+
+    - The `Flow` widget allows you to create a flow of children that aligns horizontally or vertically.
+    - Useful for creating complex layouts with irregular shapes.
+
+11. **Nested Layouts**:
+
+    - You can nest layout widgets within each other to create complex and hierarchical layouts. For example, you can nest a `Column` within a `ListView` to create scrollable columns.
+
+12. **Custom Layouts**:
+    - Flutter allows you to create custom layout widgets by extending existing layout widgets or creating entirely new ones. This is useful for building unique and complex UIs.
+
+Each layout widget in Flutter has its own specific use case and properties for customization. Depending on your app's design requirements, you can choose the appropriate layout widgets and customize them to create the desired user interface. The flexibility and versatility of Flutter's layout system allow you to build responsive and visually appealing mobile app layouts.
