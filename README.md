@@ -1081,3 +1081,107 @@ Recursion is commonly used to solve problems that exhibit a recursive structure,
 Recursion can lead to elegant and concise solutions for certain problems, but it requires a good understanding of the problem and careful implementation to avoid potential stack overflow errors.
 
 # **_Object-Oriented-Programming_**
+
+# **Class**:
+
+> In Dart, a class is a blueprint for creating objects. It defines the structure, properties (attributes), and methods (functions) that objects of that class will have. Classes are a fundamental building block of object-oriented programming (OOP) and are used to encapsulate data and behavior into a single unit. Here's how you can define and work with classes in Dart:
+
+1. **Defining a Class**:
+
+   To define a class in Dart, use the `class` keyword followed by the class name. The class body is enclosed in curly braces `{}` and contains properties and methods.
+
+   ```dart
+   class Person {
+     // Properties (attributes)
+     String name;
+     int age;
+
+     // Methods (functions)
+     void sayHello() {
+       print('Hello, my name is $name.');
+     }
+   }
+   ```
+
+2. **Creating Objects**:
+
+   You can create objects (instances) of a class by using the class name followed by parentheses `()`.
+
+   ```dart
+   Person person = Person(); // Create an instance of the Person class.
+   ```
+
+3. **Accessing Properties and Methods**:
+
+   You can access the properties and methods of an object using the dot `.` notation.
+
+   ```dart
+   person.name = 'Alice';
+   person.age = 30;
+   person.sayHello(); // Calls the sayHello method.
+   ```
+
+4. **Constructors**:
+
+   Constructors are special methods used to create and initialize objects. Dart provides default constructors and named constructors.
+
+   ```dart
+   class Point {
+     int x, y;
+
+     // Default constructor
+     Point(this.x, this.y);
+
+     // Named constructor
+     Point.origin() : x = 0, y = 0;
+   }
+   ```
+
+   To create objects using named constructors:
+
+   ```dart
+   Point p1 = Point(2, 3); // Using the default constructor.
+   Point p2 = Point.origin(); // Using the named constructor.
+   ```
+
+5. **Getters and Setters**:
+
+   Dart allows you to define getters and setters to control access to class properties.
+
+   ```dart
+   class Circle {
+     double radius;
+
+     double get area => 3.141 * radius * radius; // Getter
+     set area(double value) => radius = sqrt(value / (3.141));
+   }
+   ```
+
+   You can use these getters and setters as if they were regular properties.
+
+   ```dart
+   Circle circle = Circle();
+   circle.radius = 5.0;
+   print('Area: ${circle.area}');
+   ```
+
+6. **Constructors and Named Constructors**:
+
+   You can define multiple constructors for a class, including named constructors.
+
+   ```dart
+   class Rectangle {
+     double width, height;
+
+     Rectangle(this.width, this.height);
+
+     Rectangle.square(double side) : width = side, height = side;
+   }
+   ```
+
+   Create objects using different constructors:
+
+   ```dart
+   Rectangle rect = Rectangle(3, 4); // Using the default constructor.
+   Rectangle square = Rectangle.square(5); // Using the named constructor.
+   ```
