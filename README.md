@@ -1820,32 +1820,4 @@ To use any of these packages in your Flutter project, you can add them to your `
 
 # **Flutter Widgets**
 
-Flutter Scaffold
-Flutter Container
-Flutter Row & Column
-Flutter TextFlutter TextField
-Flutter Buttons
-Flutter Stack
-Flutter Forms
-Flutter AlertDialog
-Flutter Icons
-Flutter Images
-Flutter Card
-Flutter Tabbar
-Flutter Drawer
-Flutter Lists
-Flutter GridView
-Flutter Toast
-Flutter Checkbox
-Flutter Radio Button
-Flutter Progress Bar
-Flutter Snackbar
-Flutter Tooltip
-Flutter Slider
-Flutter Switch
-Flutter Charts
-Flutter Bottom Navigation Bar
-Flutter Themes
-Flutter Table
-Flutter Calendar
-Flutter Animation
+![Screenshot]![Alt text](class-3/ui/Cover.png)
