@@ -1820,4 +1820,4 @@ To use any of these packages in your Flutter project, you can add them to your `
 
 # **Flutter Widgets**
 
-![Screenshot]![Alt text](class-3/ui/Cover.png)
+![Alt text](class-3/ui/Cover.png)
