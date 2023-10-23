@@ -1832,4 +1832,4 @@ To use any of these packages in your Flutter project, you can add them to your `
 
 # **Onboarding Screens UI XD FILE Assets**
 
-<class-3/ui/Onboarding Design.xd>
+[Onboarding Design.xd]({{file name='class-3/ui/Onboarding Design.xd'}})
