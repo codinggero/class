@@ -1825,3 +1825,11 @@ To use any of these packages in your Flutter project, you can add them to your `
 # **Onboarding Screens**
 
 ![Alt text](<class-3/ui/Screen 1.png>)![Alt text](<class-3/ui/Screen 2.png>)![Alt text](<class-3/ui/Screen 3.png>)
+
+# **Onboarding Screens Assets**
+
+![Alt text](class-3/ui/1.png)![Alt text](class-3/ui/2.png)![Alt text](class-3/ui/3.png)
+
+# **Onboarding Screens UI XD FILE Assets**
+
+<class-3/ui/Onboarding Design.xd>
