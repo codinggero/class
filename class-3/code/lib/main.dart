@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'app_constant.dart';
+import 'professional.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Professional(),
     );
   }
 }
@@ -60,14 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
 
-    Color black = const Color(0xff2f2c2c);
-    Color grey = const Color(0xa62f2c2c);
-    Color darkGrey = const Color(0xffa1a0a2);
-    Color lightGrey = const Color(0xffd3d3d4);
-    Color white = const Color(0xfffdfdff);
-
-    String? fontFamily = 'Inter';
-
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -77,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               SizedBox(
                 width: width,
-                child: Text(
+                child: const Text(
                   'Listen to your \nfavourite podcast.',
                   style: TextStyle(
                     fontFamily: fontFamily,
@@ -87,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              Text(
+              const Text(
                 'Discover all the latest and greatest \npodcast to listen everyday.',
                 style: TextStyle(
                   fontFamily: fontFamily,
@@ -137,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   backgroundColor: black,
                 ),
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   'Get Started',
                   style: TextStyle(
                     fontFamily: fontFamily,
