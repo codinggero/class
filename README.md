@@ -1908,15 +1908,7 @@ I assume you have setup java home in system variable as **JAVA_HOME** and path t
 
 ## Path Variables
 
-`````cmd
-    Variable name: ANDROID_HOME
-    Variable value: D:\Program\Android
-    ```
-   ````cmd
-    Variable name: ANDROID_HOME
-    Variable value: D:\Program\Android
-    ```
-
+```
 -[√] ANDROID_HOME=D:\Program\Android
 -[√] JAVA_HOME=D:\Program\Java\jdk-18
 -[X] Path
@@ -1925,6 +1917,7 @@ I assume you have setup java home in system variable as **JAVA_HOME** and path t
 -[√] D:\Program\flutter\bin
 -[√] D:\Program\Java\jdk-18\bin
 -[√] D:\Program\Android\platform-tools
+```
 
 ## gradle Setup
 
@@ -1950,7 +1943,7 @@ D:\
 │   │   └── README
 │   ├── android_sdk
 │   ├── flutter
-`````
+```
 
 Update the path:
 
