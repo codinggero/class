@@ -1820,8 +1820,10 @@ To use any of these packages in your Flutter project, you can add them to your `
 
 # **Flutter Setup**
 
-# Methods 
+# Methods
+
 # 1 Setup without Android Studio
+
 # 2 Setup with Android Studio
 
 # 1 Flutter setup without android studio
@@ -1903,6 +1905,14 @@ Doctor summary (to see all details, run flutter doctor -v):
 ## Java Jdk
 
 I assume you have setup java home in system variable as **JAVA_HOME** and path to **java/bin**
+ANDROID_HOME=D:\Program\Android
+JAVA_HOME=D:\Program\Java\jdk-18
+Path
+D:\Program\Android\cmdline-tools\tools
+D:\Program\Android\cmdline-tools\tools\bin
+D:\Program\flutter\bin
+D:\Program\Java\jdk-18\bin
+D:\Program\Android\platform-tools
 
 ## gradle Setup
 
