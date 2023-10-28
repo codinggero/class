@@ -1905,14 +1905,17 @@ Doctor summary (to see all details, run flutter doctor -v):
 ## Java Jdk
 
 I assume you have setup java home in system variable as **JAVA_HOME** and path to **java/bin**
-ANDROID_HOME=D:\Program\Android
-JAVA_HOME=D:\Program\Java\jdk-18
+
+## Path Variables
+
+[√] ANDROID_HOME=D:\Program\Android
+[√] JAVA_HOME=D:\Program\Java\jdk-18
 Path
-D:\Program\Android\cmdline-tools\tools
-D:\Program\Android\cmdline-tools\tools\bin
-D:\Program\flutter\bin
-D:\Program\Java\jdk-18\bin
-D:\Program\Android\platform-tools
+[√] D:\Program\Android\cmdline-tools\tools
+[√] D:\Program\Android\cmdline-tools\tools\bin
+[√] D:\Program\flutter\bin
+[√] D:\Program\Java\jdk-18\bin
+[√] D:\Program\Android\platform-tools
 
 ## gradle Setup
 
