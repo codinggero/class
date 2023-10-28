@@ -1910,7 +1910,7 @@ I assume you have setup java home in system variable as **JAVA_HOME** and path t
 
 [√] ANDROID_HOME=D:\Program\Android
 [√] JAVA_HOME=D:\Program\Java\jdk-18
-Path
+[X] Path
 [√] D:\Program\Android\cmdline-tools\tools
 [√] D:\Program\Android\cmdline-tools\tools\bin
 [√] D:\Program\flutter\bin
