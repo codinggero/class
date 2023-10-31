@@ -2152,6 +2152,10 @@ Creting flutter application in vs code there are two method:
 
 # Application/Project structure
 
+## Api
+
+https://fakestoreapi.com/docs
+
 After successful build, your application structure should look like this:
 
 ```
