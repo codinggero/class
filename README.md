@@ -2149,3 +2149,172 @@ Creting flutter application in vs code there are two method:
 # **Onboarding Screens UI XD FILE Assets**
 
 [Download XD File](https://github.com/codinggero/class/blob/main/class-3/ui/Onboarding%20Design.xd "download")
+
+# Application/Project structure
+
+After successful build, your application structure should look like this:
+
+```
+.
+├── android                         - It contains files required to run the application on an Android platform.
+├── assets                          - It contains all images and fonts of your application.
+├── ios                             - It contains files required to run the application on an iOS platform.
+├── lib                             - Most important folder in the application, used to write most of the Dart code..
+    ├── main.dart                   - Starting point of the application
+    ├── core
+    │   ├── app_export.dart         - It contains commonly used file imports
+    │   ├── constants               - It contains static constant class file
+    │   └── utils                   - It contains common files and utilities of the application
+    ├── presentation                - It contains widgets of the screens
+    ├── routes                      - It contains all the routes of the application
+    └── theme                       - It contains app theme and decoration classes
+    └── widgets                     - It contains all custom widget classes
+```
+
+# Splash Screen
+
+In Flutter, there are two primary types of splash screens: native splash screens and Flutter splash screens.
+
+### Native Splash Screen:
+
+#### Description:
+
+- **Native splash screen** is a splash screen that is shown by the operating system (iOS or Android) before the Flutter app starts up.
+- This is the initial screen that is displayed before the Flutter framework is initialized and the Flutter app is loaded.
+- It's usually an image or a static screen provided by the operating system for a brief period during app startup.
+
+#### Customization:
+
+- Native splash screens are typically managed and customized through the native code of each platform (Objective-C/Swift for iOS and Java/Kotlin for Android).
+- They can be configured to display a specific image or content while the app is loading, adhering to platform-specific guidelines.
+
+### Flutter Splash Screen:
+
+#### Description:
+
+- **Flutter splash screen** is created using Flutter widgets and is shown after the native splash screen but before the main content of the app is loaded.
+- This type of splash screen is controlled and managed within the Flutter app itself and can provide more interactivity or customization than the native splash screen.
+- It allows the developer to display branded content, animations, or loading indicators while the app initializes.
+
+#### Customization:
+
+- Flutter splash screens can be implemented using widgets and Flutter code, allowing for more flexibility in design and functionality.
+- Developers have the freedom to create interactive splash screens with animations, transitions, or any custom UI to enhance the user experience during app initialization.
+
+### When to Use Each:
+
+- **Native Splash Screen**: This is useful for displaying a simple splash image while the app initializes at the native level, often complying with platform-specific design patterns. If you need a static, platform-specific splash image to be displayed before the Flutter app is loaded, you'll configure this at the native level.
+- **Flutter Splash Screen**: Use a Flutter splash screen if you need a more customized, interactive experience during the app initialization phase. This is helpful when you want to create a more engaging transition or display branding elements with animation or loading indicators that are unique to your app.
+
+For a complete and seamless user experience, both types of splash screens can be utilized together to manage the initial loading and transition into the main content of your Flutter app. The native splash screen provides a quick start to the app, followed by the more interactive Flutter splash screen that offers a more engaging experience during app startup.
+
+## Example
+
+Creating a splash screen in a Flutter app involves displaying a loading or branding screen when the application starts. This is typically done to provide a visual indication to the user that the app is loading. Here is an example of how you can implement a basic splash screen in Flutter:
+
+Firstly, you can use a package like `flutter_native_splash` to generate native splash screens for both Android and iOS. Install it in your project and configure the splash screen appearance according to your design needs.
+
+To use `flutter_native_splash`, follow these steps:
+
+### 1. Add the Package:
+
+Add the package to your `pubspec.yaml` file:
+
+```cmd
+  flutter pub add flutter_native_splash
+```
+
+```yaml
+dev_dependencies:
+  flutter_native_splash: ^2.3.5
+```
+
+### 2. Configuration:
+
+Add a configuration to your `pubspec.yaml` file to define the splash screen settings. Example:
+
+```yaml
+flutter_native_splash:
+  color: "#42a5f5" # Background color of the splash screen
+  image: "assets/images/splash.png" # Path to your splash screen image
+  android: true # Generates splash screen for Android
+  ios: true # Generates splash screen for iOS
+```
+
+### 3. Splash Screen Generation:
+
+Run the following command in the terminal to generate splash screens for both Android and iOS:
+
+```bash
+flutter pub run flutter_native_splash:create
+```
+
+This command will create necessary splash screen images and configuration files for different screen sizes and densities, saving them in the Android and iOS directories.
+
+### 4. Configuration Adjustment (if needed):
+
+You can adjust the generated configuration files in `android/app/src/main/res/values/colors.xml` for Android and `ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json` for iOS, according to your specific requirements.
+
+Next, for a Flutter-specific splash screen, you can transition from the generated native splash screen to your Flutter UI by using a custom Flutter splash screen within the app:
+
+```dart
+import 'dart:async';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: SplashScreen(), // Display the splash screen initially
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Simulate a delay using a timer to display the splash screen for 3 seconds
+    Timer(
+      Duration(seconds: 3),
+      () => Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => HomeScreen()), // Navigate to the home screen after 3 seconds
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: FlutterLogo(size: 200), // Display a Flutter logo as a placeholder
+      ),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Main Screen'),
+      ),
+      body: Center(
+        child: Text('Your main app content'),
+      ),
+    );
+  }
+}
+```
+
+This example creates a simple splash screen using a `FlutterLogo` as a placeholder for 3 seconds and then navigates to the `HomeScreen`. You can customize the splash screen appearance and duration according to your app's design and loading requirements.
